@@ -1,0 +1,17 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Nov  8 15:27:13 2017
+
+@author: andre
+"""
+
+top10_list_names = ('t5_2rosc','t5_2u1cu','t5_2vhg0','t5_2z9ks','t5_2u9jq','t5_33wg4','t5_2x15g','t5_2vjsb','t5_2zlk5','t5_2z4ce')
+top10_list_counts = (580.6890, 545.0525, 373.7486, 337.6989, 312.2592, 265.3265, 252.0982, 250.5482, 223.2402, 176.2794)
+print('ranking / subreddit ID / subreddit name / depth') 
+for i in  range (0,10):
+    for row in c.execute("SELECT id, name FROM subreddits WHERE id = ?" ,(top10_list_names[i],)):
+        ID = str(row[0]).replace("b'", "")
+        ID = ID.replace("'", "")
+        name = str(row[1]).replace("b'", "")
+        name = name.replace("'", "")
+        print(i+1,'/',ID,'/',name,'/',(top10_list_counts[i]))

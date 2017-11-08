@@ -1,0 +1,10 @@
+top10_list_names = ('t5_2qh1i','t5_2qh33','t5_2qh0u','t5_30uy0','t5_2qh13','t5_2qqjc','t5_2qh1e','t5_2rfxx','t5_2sgp1','t5_2r84s')
+top10_list_counts = (607164, 235545, 218504, 207531, 206851, 206004, 197370, 172825, 167395, 147156)
+print('ranking / subreddit ID / subreddit name / vocabulary count') 
+for i in  range (0,10):
+    for row in c.execute("SELECT id, name FROM subreddits WHERE id = ?" ,(top10_list_names[i],)):
+        ID = str(row[0]).replace("b'", "")
+        ID = ID.replace("'", "")
+        name = str(row[1]).replace("b'", "")
+        name = name.replace("'", "")
+        print(i+1,'/',ID,'/',name,'/',(top10_list_counts[i]))

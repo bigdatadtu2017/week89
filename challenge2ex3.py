@@ -33,4 +33,4 @@ for row in c.execute('''WITH CTE AS
     print(row)
 print('done')
 end = time.time()
-print(end - start)
+print('run time [s]:',end - start)

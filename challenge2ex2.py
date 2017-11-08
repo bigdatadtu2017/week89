@@ -14,23 +14,23 @@ dataSQL = sqlite3.connect('reddit.db')
 dataSQL.text_factory = bytes
 c = dataSQL.cursor()
 
-for row in c.execute('''SELECT a.subreddit_id, b.subreddit_id, COUNT(*) AS common_authors
+for row in c.execute('''SELECT a.subreddit_id, b.subreddit_id, COUNT(*) AS common_authors   --#Output
                         FROM
-                            (SELECT DISTINCT subreddit_id, author_ID
-                              FROM comments
+                            (SELECT DISTINCT subreddit_id, author_ID                        --#Inner loop, selecting            
+                              FROM comments                                                 
                               ORDER BY id 
-                              LIMIT 60000000) a
+                              ) a                                                           --#temporary structure, a
                         JOIN
                             (SELECT DISTINCT subreddit_id, author_ID
                               FROM comments
                               ORDER BY id 
-                              LIMIT 60000000) b
-                        ON a.author_ID = b.author_ID
-                        WHERE a.subreddit_id <> b.subreddit_id 
-                        GROUP BY a.subreddit_id, b.subreddit_id
-                        ORDER BY COUNT(*) DESC 
-                        LIMIT 1 '''):
+                              ) b                                                           --#temporary stucture b
+                        ON a.author_ID = b.author_ID                                        --#joins with it self
+                        WHERE a.subreddit_id <> b.subreddit_id                              --#where subreddit_id's are not equal. 
+                        GROUP BY a.subreddit_id, b.subreddit_id                             --#groups
+                        ORDER BY COUNT(*) DESC                                              --#descending, oder by counts of group
+                        LIMIT 20 '''):                                                      #top 10 subreddit pairs
     print(row)
 print('done')
 end = time.time()
-print(end - start)
+print('run time [s]:'end - start)

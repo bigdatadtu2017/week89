@@ -1,6 +1,6 @@
-top10_list_names_a = ('t5_2qh1i','t5_2qh33','t5_2qh0u','t5_30uy0','t5_2qh13','t5_2qqjc','t5_2qh1e','t5_2rfxx','t5_2sgp1','t5_2r84s')
-top10_list_names_b = ('t5_2qh1i','t5_2qh33','t5_2qh0u','t5_30uy0','t5_2qh13','t5_2qqjc','t5_2qh1e','t5_2rfxx','t5_2sgp1','t5_2r84s')
-top10_list_counts = (607164, 235545, 218504, 207531, 206851, 206004, 197370, 172825, 167395, 147156)
+top10_list_names_a = ('t5_2qh1i','t5_2qh0u','t5_2qh1i','t5_2qh0u','t5_2qh1e','t5_2qh1i','t5_2qh33','t5_2qh0u','t5_2qh1i','t5_2qh0u')
+top10_list_names_b = ('t5_2qh33','t5_2qh1i','t5_2qqjc','t5_2qh33','t5_2qh1i','t5_2s7tt','t5_2qqjc','t5_2qqjc','t5_2qh61','t5_2qh1e')
+top10_list_counts = (141788, 138672, 105138, 104903, 91975, 84457, 71664, 71557, 71247, 67090)
 print('ranking /  authors in common') 
 for i in  range (0,10): 
     print(i+1,'/',(top10_list_counts[i])) 
